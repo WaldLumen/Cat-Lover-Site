@@ -92,34 +92,71 @@
         </div>
     </section>
 
-    <script>
-    let isScrolling = false;
+    </section>
 
-    document.addEventListener('wheel', (event) => {
-        if (isScrolling) return; 
-        isScrolling = true;
+<script>
+let isScrolling = false;
+let touchStartY = 0; // Координата начала касания
+let touchEndY = 0;   // Координата конца касания
 
-        const delta = Math.sign(event.deltaY);
+document.addEventListener('wheel', (event) => {
+    if (isScrolling) return; 
+    isScrolling = true;
 
-        const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2).closest('section');
-        if (!currentSection) return;
+    const delta = Math.sign(event.deltaY);
 
-        let targetSection;
-        if (delta > 0) {
-            targetSection = currentSection.nextElementSibling;
-        } else if (delta < 0) {
-            targetSection = currentSection.previousElementSibling;
-        }
+    const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2).closest('section');
+    if (!currentSection) return;
 
-        
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        }
+    let targetSection;
+    if (delta > 0) {
+        targetSection = currentSection.nextElementSibling;
+    } else if (delta < 0) {
+        targetSection = currentSection.previousElementSibling;
+    }
 
-        
-        setTimeout(() => (isScrolling = false), 700);
-    });
-    </script>
+    if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    setTimeout(() => (isScrolling = false), 700);
+});
+
+// Добавляем поддержку свайпов для мобильных устройств
+document.addEventListener('touchstart', (event) => {
+    touchStartY = event.touches[0].clientY; // Сохраняем начальную координату Y
+});
+
+document.addEventListener('touchmove', (event) => {
+    touchEndY = event.touches[0].clientY; // Обновляем конечную координату Y
+});
+
+document.addEventListener('touchend', () => {
+    if (isScrolling) return;
+    isScrolling = true;
+
+    const delta = touchStartY - touchEndY; // Разница между начальной и конечной координатой
+
+    const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2).closest('section');
+    if (!currentSection) return;
+
+    let targetSection;
+    if (delta > 50) {
+        // Свайп вверх
+        targetSection = currentSection.nextElementSibling;
+    } else if (delta < -50) {
+        // Свайп вниз
+        targetSection = currentSection.previousElementSibling;
+    }
+
+    if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    setTimeout(() => (isScrolling = false), 700);
+});
+</script>
+
     <script>
       function toggleMenu() {
 	  const menu = document.getElementById('menu');
