@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Догляд за кошеням - Cat Herping</title>
+    <link rel="stylesheet" href="../styles/article.css">
+<link rel="icon" type="image/x-icon" href="../assets/cats/3.jpg">	
+</head>
+<body>
+    <div class="header">
+        <button class="menu-btn" onclick="toggleMenu()">☷</button>
+       <div id="menu" class="menu">
+            <button class="submenu-btn" onclick="toggleSubmenu('care')">Догляд ↓</button>
+            <div id="care" class="submenu">
+                <a href="how-to-care-of-a-cat.html">Догляд за котом</a>
+                <a href="how-to-care-of-a-kitten.html">Догляд за кошеням</a>
+            </div>
+
+            <button class="submenu-btn" onclick="toggleSubmenu('training')">Тренування ↓</button>
+            <div id="training" class="submenu">
+                <a href="how-to-train-a-cat.html">Дресирування котів</a>
+                <a href="useful-commands.html">6 корисних команд</a>
+            </div>
+
+            <button class="submenu-btn" onclick="toggleSubmenu('features')">Харчування ↓</button>
+            <div id="features" class="submenu">
+                <a href="how-too-feed-a-cat.html">Як правильно годувати кота</a>
+                <a href="how-to-choise-food.html">Як вибрати корм для кота</a>
+            </div>
+        </div>
+
+        <a href="../index.html" class="logo">≽^• ˕ •^≼ Cat Herping ≽^• ˕ •^≼</a>
+    </div>
+
+    <!-- Основной контент статьи -->
+    <main class="article-content">
+        <section class="article-header">
+            <h1>Догляд за кошеням</h1>
+            <p class="article-meta">Дата: 23.11.2024 | Автор: Команда Cat Herping</p>
+        </section>
+
+        <section class="article-body">
+            
+	 <p>Маленькі пухнастики - це не тільки безмежна радість, а й велика відповідальність. Для новачків у догляді за кошеням цей процес може видатися складним, але правильна підготовка зробить все простішим.</p>
+
+    <h2>Кошеня вдома: облаштування і комфорт</h2>
+    <p>Кожне кошеня потребує власного простору і предметів, які допоможуть забезпечити комфорт як для нього, так і для господарів:</p>
+    <ul>
+        <li><strong>Будиночок або лежак:</strong> виберіть затишний варіант, який відповідає розмірам кошеняти.</li>
+        <li><strong>Дряпка:</strong> вона захистить меблі і стіни від котячих кігтів, а також забезпечить гру.</li>
+        <li><strong>Лоток:</strong> використовуйте зручний для кошеняти відкритий або закритий лоток з наповнювачем.</li>
+        <li><strong>Переноска:</strong> необхідна для поїздок і відвідування ветеринара.</li>
+    </ul>
+
+    <h2>Годування кошеняти</h2>
+    <p>Правильне харчування - основа здорового розвитку кошеняти. Обирайте спеціально розроблений корм, багатий на білки, жири, вітаміни та мінерали. Для зручності придбайте дві миски (для води і корму), бажано з металу або кераміки. Якщо кошеня потребує молока, використовуйте замінники котячого молока, які максимально наближені до натурального складу.</p>
+
+    <h2>Здоров'я кошеняти: вакцинація, профілактика і догляд</h2>
+    <p>Вакцинація є обов'язковою частиною догляду за кошеням. Починаючи з 8 тижнів, проводяться щеплення проти сказу, грипу, панлейкопенії та інших хвороб. Для профілактики паразитів проводьте обробку від бліх і кліщів, а також дегельмінтизацію.</p>
+
+    <h2>Догляд за шерстю та чистота</h2>
+    <p>Для купання кошенят використовуйте спеціальні шампуні, які відповідають їхньому рівню pH. Уникайте засобів для людей чи собак, щоб не викликати подразнення. Купати кошеня слід лише за потреби.</p>
+
+    <h2>Ігри та розвиток</h2>
+    <p>Кошенята активні і грайливі, тому їм потрібні іграшки та простір для гри. Це допомагає тренувати їхні м'язи, розвивати спритність і стимулювати інтелект.</p>
+
+
+        </section>
+
+        <section class="article-footer">
+            <p>Дякуємо за читання! Якщо у вас є питання, зв'яжіться з нами через Telegram або за телефоном.</p>
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function toggleSubmenu(section) {
+            const submenu = document.getElementById(section);
+            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

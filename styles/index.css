@@ -1,0 +1,296 @@
+@font-face {
+  font-family: 'CustomFont';
+  src: url('assets/font/JetBrainsMonoNerdFont-Bold.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    font-family: 'JetBrainsMonoNerdFont-Bold', Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    scroll-snap-type: y mandatory; /* Включаем "залипающую" прокрутку */
+    overflow-y: hidden; /* Отключаем стандартную прокрутку */
+    overflow: hidden; /* Hide scrollbars */	
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Пространство между кнопками и логотипом */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #4f8a56;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    gap: 15px;
+}
+
+.logo {
+    margin: 0 auto; /* Центрирует логотип */
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    text-decoration: none;
+    flex: 1; /* Увеличивает гибкость, чтобы занять больше пространства */
+}
+
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .section-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content, .image-content {
+        order: 0; /* Убираем чередование на мобильных */
+    }
+
+    .image-content img {
+        max-width: 80%;
+    }
+
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .button {
+        margin: 5px 0;
+    }
+}
+
+/* Текст и изображение */
+.section-content {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    z-index: 1; /* Чтобы текст находился выше фона */
+    height: 100vh; /* Устанавливает размер на весь экран */
+    overflow-y: scroll; /* Разрешает прокрутку */
+    scroll-snap-type: y mandatory;
+ overflow: hidden; /* Hide scrollbars */	
+}
+
+.text-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Расположение: картинка справа */
+.image-right .text-content {
+    order: 1; /* Текст слева */
+}
+
+.image-right .image-content {
+    order: 2; /* Картинка справа */
+}
+
+/* Расположение: картинка слева */
+.image-left .text-content {
+    order: 2; /* Текст справа */
+}
+
+.image-left .image-content {
+    order: 1; /* Картинка слева */
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .section-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content, .image-content {
+        order: 0; /* Убираем чередование на мобильных */
+    }
+
+    .image-content img {
+        max-width: 80%;
+    }
+}
+
+
+
+
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 60px 20px;
+    position: relative;
+    color: white;
+    overflow: hidden;
+    scroll-snap-align: start; 
+}
+
+/* Псевдоэлемент для размытия */
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0; /* Размытие ниже основного содержимого */
+    filter: blur(8px); /* Небольшое общее размытие */
+    opacity: 0.9; /* Легкая прозрачность для мягкости */
+}
+
+/* Главная секция с изображением и градиентом */
+.section-home::before {
+    background-image: url('../assets/b1.jpg');
+}
+
+/* Секция "Про нас" */
+.section-about::before {
+    background-image: url('../assets/b2.jpg');
+}
+
+/* Секция "Темы" */
+.section-themes::before {
+    background-image: url('../assets/b3.jpg');
+}
+
+/* Секция "Контакты" */
+.section-contact::before {
+    background-image: url('../assets/b4.jpg');
+}
+
+/* Текст и изображение */
+.section-content {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    z-index: 1; /* Чтобы текст и изображение были выше псевдоэлемента */
+}
+
+.text-content {
+    flex: 1;
+    max-width: 600px;
+    z-index: 1;
+}
+
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+} 
+
+
+.menu {
+    display: none; /* Скрыто по умолчанию */
+    background-color: #4f8a56; /* Тёмно-зелёный фон */
+    padding: 20px;
+    position: fixed; /* Фиксированное положение */
+    top: 57px;
+    left: 0;
+    height: 100vh; /* Занимает всю высоту экрана */
+    width: 250px; /* Ширина меню */
+    z-index: 1;
+    overflow-y: auto; /* Прокрутка для длинного контента */
+    color: #4f8a56; /* Светло-зелёный текст */
+}
+
+.menu-btn, .close-btn {
+    background-color: #006A4E;
+    color: #eaf4e6;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu-btn:hover, .close-btn:hover {
+    background-color: #3e6d3b; /* Более светлый зелёный при наведении */
+}
+
+.close-btn {
+    display: block;
+    margin: 0 auto 20px auto; /* Центрирование кнопки закрытия */
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.submenu-btn {
+    background-color: #006A4E;
+    color: #eaf4e6;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.submenu-btn:hover {
+    background-color: #4c7a4a;
+}
+
+.submenu {
+    display: none; /* Скрыто по умолчанию */
+    padding-left: 15px;
+    margin-top: 10px;
+    border-left: 2px solid #4c7a4a;
+}
+
+.submenu a {
+    color: #eaf4e6;
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+.submenu a:hover {
+    background-color: #4c7a4a;
+}

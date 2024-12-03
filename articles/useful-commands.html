@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Як навчити кота 6 важливих команд</title>
+    <link rel="stylesheet" href="../styles/article.css">
+    <link rel="icon" type="image/x-icon" href="../assets/cats/3.jpg">	
+</head>
+<body>
+    <div class="header">
+        <button class="menu-btn" onclick="toggleMenu()">☷</button>
+        <div id="menu" class="menu">
+            <button class="submenu-btn" onclick="toggleSubmenu('care')">Догляд ↓</button>
+            <div id="care" class="submenu">
+                <a href="how-to-care-of-a-cat.html">Догляд за котом</a>
+                <a href="how-to-care-of-a-kitten.html">Догляд за кошеням</a>
+            </div>
+
+            <button class="submenu-btn" onclick="toggleSubmenu('training')">Тренування ↓</button>
+            <div id="training" class="submenu">
+                <a href="how-to-train-a-cat.html">Дресирування котів</a>
+                <a href="useful-commands.html">Як навчити кота 6 команд</a>
+            </div>
+
+            <button class="submenu-btn" onclick="toggleSubmenu('features')">Харчування ↓</button>
+            <div id="features" class="submenu">
+                <a href="how-too-feed-a-cat.html">Як правильно годувати кота</a>
+                <a href="how-to-choise-food.html">Як вибрати корм для кота</a>
+            </div>
+        </div>
+
+        <a href="../index.html" class="logo">≽^• ˕ •^≼ Cat Herping ≽^• ˕ •^≼</a>
+    </div>
+
+    <main class="article-content">
+        <section class="article-header">
+            <h1>Як навчити кота 6 важливих команд</h1>
+            <p class="article-meta">Дата: 02.12.2024 | Автор: Команда Cat Herping</p>
+        </section>
+
+        <section class="article-body">
+            <p>Дресирування кота може бути не лише цікавим, а й надзвичайно корисним. Ці шість команд допоможуть виховати улюбленця, зробивши його слухняним і спокійним.</p>
+
+            <h2>Команда "Сідати"</h2>
+            <p>Навчити кота сідати можна за допомогою мотивації ласощами. Покажіть ласощі, тримаючи руку над головою кота. Коли він опустить задні лапи, промовте "сідати" і нагородіть. Повторюйте, поступово вводячи команду без показу ласощів.</p>
+
+            <h2>Команда "Торкання носом"</h2>
+            <p>Використовуйте мішень, наприклад, паличку або палець. Піднесіть мішень до кота, і коли він торкнеться її носом, промовте "торкнися" і дайте нагороду. З часом кіт почне реагувати на команду без додаткового стимулу.</p>
+
+            <h2>Команда "Заходити до боксу"</h2>
+            <p>Поставте бокс відкритим на підлозі і покладіть всередину улюблені ласощі. Коли кіт зайде, промовте "заходь" і винагородіть. Повторюйте кілька разів, додаючи команду перед тим, як показати ласощі.</p>
+
+            <h2>Команда "Стій"</h2>
+            <p>Коли кіт знаходиться у русі, підніміть руку або скажіть "стій", заохотивши його затриматися на місці. Спочатку нагороджуйте після кожного успішного виконання, поступово збільшуючи тривалість виконання команди.</p>
+
+            <h2>Команда "До мене"</h2>
+            <p>Звуковий сигнал, наприклад, струшування коробочки з ласощами, може допомогти. Промовляйте "до мене" і струшуйте коробочку, коли кіт підходить, давайте нагороду. З часом прибирайте сигнал, залишаючи лише команду.</p>
+
+            <h2>Стійкість під час неприємних процедур</h2>
+            <p>Привчайте кота до процедур, таких як обрізання кігтів або огляди, поступово. Спокійно підтримуйте його, промовляючи "спокійно", і винагороджуйте за терплячу поведінку. Короткі і регулярні сеанси допоможуть уникнути стресу.</p>
+        </section>
+
+        <section class="article-footer">
+            <p>Завдяки терпінню та регулярності ви зможете навчити кота будь-яких команд. Пам’ятайте, що важливо уникати примусу — позитивне підкріплення дасть кращі результати!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Cat Herping. Усі права захищено.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function toggleSubmenu(section) {
+            const submenu = document.getElementById(section);
+            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

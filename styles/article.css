@@ -1,0 +1,168 @@
+/* Подключение кастомного шрифта */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../assets/font/JetBrainsMonoNerdFont-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'JetBrainsMonoNerdFont-Bold', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Пространство между кнопками и логотипом */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #4f8a56;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    gap: 15px;
+}
+
+.logo {
+    margin: 0 auto; /* Центрирует логотип */
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    text-decoration: none;
+    flex: 1; /* Увеличивает гибкость, чтобы занять больше пространства */
+}
+
+
+/* Стили для кнопок меню */
+.menu-btn {
+    background-color: #4f8a56;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn:hover {
+    background-color: #49796B;
+}
+
+.menu {
+    display: none; /* Скрыто по умолчанию */
+    background-color: #4f8a56; /* Тёмно-зелёный фон */
+    padding: 20px;
+    position: fixed; /* Фиксированное положение */
+    top: 57px;
+    left: 0;
+    height: 100vh; /* Занимает всю высоту экрана */
+    width: 250px; /* Ширина меню */
+    z-index: 1;
+    overflow-y: auto; /* Прокрутка для длинного контента */
+    color: #4f8a56; /* Светло-зелёный текст */
+}
+
+.menu-btn, .close-btn {
+    background-color: #006A4E;
+    color: #eaf4e6;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu-btn:hover, .close-btn:hover {
+    background-color: #3e6d3b; /* Более светлый зелёный при наведении */
+}
+
+.close-btn {
+    display: block;
+    margin: 0 auto 20px auto; /* Центрирование кнопки закрытия */
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.submenu-btn {
+    background-color: #006A4E;
+    color: #eaf4e6;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.submenu-btn:hover {
+    background-color: #4c7a4a;
+}
+
+.submenu {
+    display: none; /* Скрыто по умолчанию */
+    padding-left: 15px;
+    margin-top: 10px;
+    border-left: 2px solid #4c7a4a;
+}
+
+.submenu a {
+    color: #eaf4e6;
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+.submenu a:hover {
+    background-color: #4c7a4a;
+}
+
+
+/* Основной контент статьи */
+.article-content {
+    padding: 80px 20px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.article-header h1 {
+    font-size: 2.4em;
+    margin-bottom: 10px;
+}
+
+.article-header .article-meta {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.article-body {
+    margin-bottom: 30px;
+}
+
+.article-body h2 {
+    font-size: 1.8em;
+    margin: 20px 0 10px;
+    color: #4f8a56;
+    text-align: center;
+}
+
+.article-body p {
+    margin-bottom: 15px;
+}
+
+.article-footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
+}

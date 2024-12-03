@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна - Cat Herping</title>
+    <link rel="stylesheet" href="styles/index.css">
+<link rel="icon" type="image/x-icon" href="assets/cats/3.jpg">	
+</head>
+<body>
+  <div class="header">
+    <button class="menu-btn" onclick="toggleMenu()">☷</button>
+    <div id="menu" class="menu">
+        <button class="submenu-btn" onclick="toggleSubmenu('care')">Догляд ↓</button>
+        <div id="care" class="submenu">
+            <a href="articles/how-to-care-of-a-cat.html">Догляд за котом</a>
+            <a href="articles/how-to-care-of-a-kitten.html">Догляд за кошеням</a>
+        </div>
+
+        <button class="submenu-btn" onclick="toggleSubmenu('training')">Тренування ↓</button>
+        <div id="training" class="submenu">
+            <a href="articles/how-to-train-a-cat.html">Дресирування котів</a>
+            <a href="articles/useful-commands.html">6 корисних команд</a>
+        </div>
+
+        <button class="submenu-btn" onclick="toggleSubmenu('features')">Харчування ↓</button>
+        <div id="features" class="submenu">
+            <a href="articles/how-too-feed-a-cat.html">Як правильно годувати кота</a>
+            <a href="articles/how-to-choise-food.html">Як вибрати корм для кота</a>
+        </div>
+    </div>
+
+    <a href="index.html" class="logo">≽^• ˕ •^≼ Cat Herping ≽^• ˕ •^≼</a>
+</div>
+
+
+    <!-- Контейнер для стрелок -->
+    <div class="nav-arrow-container">
+        <button class="nav-arrow nav-prev" onclick="navigateToSection('prev')">&#8679;</button>
+        <button class="nav-arrow nav-next" onclick="navigateToSection('next')">&#8681;</button>
+    </div>
+
+    <!-- Секции -->
+    <section id="home" class="section-home">
+        <div class="section-content">
+            <div class="text-content">
+                <h1>≽^• ˕ •^≼ Cat Herping ≽^• ˕ •^≼</h1>
+                <p>Ласкаво просимо на наш сайт, присвячений котам. Тут ви знайдете різноманітну інформацію про догляд за котами, тренування та усиновлення.</p>
+            </div>
+            <div class="image-content">
+                <img src="assets/cats/1.jpg" alt="Кіт">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-about">
+        <div class="section-content">
+            <div class="image-content">
+                <img src="assets/cats/2.jpg" alt="Котячий профіль">
+            </div>
+            <div class="text-content">
+                <h1>≽^• ˕ •^≼ Про нас ≽^• ˕ •^≼</h1>
+                <p>Ми - команда ентузіастів, які обожнюють котів та присвятили свій час тому, щоб допомагати людям краще розуміти своїх улюбленців.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="themes" class="section-themes">
+        <div class="section-content">
+            <div class="text-content">
+                <h1>≽^• ˕ •^≼ Теми ≽^• ˕ •^≼</h1>
+                <p>Ознайомтесь з різними темами, які допоможуть вам дізнатися більше про догляд за котами, їх поведінку та особливості.</p>
+
+            </div>
+            <div class="image-content">
+                <img src="assets/cats/3.jpg" alt="Кіт із темами">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-contact">
+        <div class="section-content">
+            <div class="image-content">
+                <img src="assets/cats/4.jpg" alt="Контактний кіт">
+            </div>
+            <div class="text-content">
+                <h1>≽^• ˕ •^≼ Контакти ≽^• ˕ •^≼</h1>
+                <p>Зв'яжіться з нами, щоб дізнатися більше про наші послуги або отримати поради щодо догляду за котами.</p>
+                <p>Telegram: @WaldLumen</p>
+                <p>Телефон: +380 93 232 3119</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    let isScrolling = false;
+
+    document.addEventListener('wheel', (event) => {
+        if (isScrolling) return; 
+        isScrolling = true;
+
+        const delta = Math.sign(event.deltaY);
+
+        const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2).closest('section');
+        if (!currentSection) return;
+
+        let targetSection;
+        if (delta > 0) {
+            targetSection = currentSection.nextElementSibling;
+        } else if (delta < 0) {
+            targetSection = currentSection.previousElementSibling;
+        }
+
+        
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        
+        setTimeout(() => (isScrolling = false), 700);
+    });
+    </script>
+    <script>
+      function toggleMenu() {
+	  const menu = document.getElementById('menu');
+	  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+      }
+      
+      function toggleSubmenu(section) {
+	  const submenu = document.getElementById(section);
+	  submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+      }      
+    </script>
+    
+    
+    
+</body>
+</html>
