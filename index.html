@@ -94,74 +94,71 @@
 
     </section>
 
+</section>
+
 <script>
 let isScrolling = false;
 let touchStartY = 0; // Координата начала касания
 let touchEndY = 0;   // Координата конца касания
 
-// Проверяем, является ли устройство мобильным
-const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+document.addEventListener('wheel', (event) => {
+    if (isScrolling) return; 
+    isScrolling = true;
 
-if (!isMobile) {
-    // Обработка прокрутки колесом мыши
-    document.addEventListener('wheel', (event) => {
-        if (isScrolling) return; 
-        isScrolling = true;
+    const delta = Math.sign(event.deltaY);
 
-        const delta = Math.sign(event.deltaY);
+    const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2).closest('section');
+    if (!currentSection) return;
 
-        const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2).closest('section');
-        if (!currentSection) return;
+    let targetSection;
+    if (delta > 0) {
+        targetSection = currentSection.nextElementSibling;
+    } else if (delta < 0) {
+        targetSection = currentSection.previousElementSibling;
+    }
 
-        let targetSection;
-        if (delta > 0) {
-            targetSection = currentSection.nextElementSibling;
-        } else if (delta < 0) {
-            targetSection = currentSection.previousElementSibling;
-        }
+    if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
 
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        }
+    setTimeout(() => (isScrolling = false), 700);
+});
 
-        setTimeout(() => (isScrolling = false), 700);
-    });
+// Добавляем поддержку свайпов для мобильных устройств
+document.addEventListener('touchstart', (event) => {
+    touchStartY = event.touches[0].clientY; // Сохраняем начальную координату Y
+});
 
-    // Добавляем поддержку свайпов для десктопных устройств
-    document.addEventListener('touchstart', (event) => {
-        touchStartY = event.touches[0].clientY; // Сохраняем начальную координату Y
-    });
+document.addEventListener('touchmove', (event) => {
+    touchEndY = event.touches[0].clientY; // Обновляем конечную координату Y
+});
 
-    document.addEventListener('touchmove', (event) => {
-        touchEndY = event.touches[0].clientY; // Обновляем конечную координату Y
-    });
+document.addEventListener('touchend', () => {
+    if (isScrolling) return;
+    isScrolling = true;
 
-    document.addEventListener('touchend', () => {
-        if (isScrolling) return;
-        isScrolling = true;
+    const delta = touchStartY - touchEndY; // Разница между начальной и конечной координатой
 
-        const delta = touchStartY - touchEndY; // Разница между начальной и конечной координатой
+    const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2).closest('section');
+    if (!currentSection) return;
 
-        const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2).closest('section');
-        if (!currentSection) return;
+    let targetSection;
+    if (delta > 50) {
+        // Свайп вверх
+        targetSection = currentSection.nextElementSibling;
+    } else if (delta < -50) {
+        // Свайп вниз
+        targetSection = currentSection.previousElementSibling;
+    }
 
-        let targetSection;
-        if (delta > 50) {
-            // Свайп вверх
-            targetSection = currentSection.nextElementSibling;
-        } else if (delta < -50) {
-            // Свайп вниз
-            targetSection = currentSection.previousElementSibling;
-        }
+    if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
 
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        setTimeout(() => (isScrolling = false), 700);
-    });
-}
+    setTimeout(() => (isScrolling = false), 700);
+});
 </script>
+
 
     <script>
       function toggleMenu() {
