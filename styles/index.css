@@ -48,7 +48,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* Адаптивный дизайн */
 @media (max-width: 768px) {
     .section-content {
         flex-direction: column;
@@ -56,7 +55,7 @@ body {
     }
 
     .text-content, .image-content {
-        order: 0; /* Убираем чередование на мобильных */
+        order: 0; 
     }
 
     .image-content img {
@@ -73,7 +72,7 @@ body {
     }
 }
 
-/* Текст и изображение */
+
 .section-content {
     display: flex;
     max-width: 1200px;
@@ -81,11 +80,11 @@ body {
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
-    z-index: 1; /* Чтобы текст находился выше фона */
-    height: 100vh; /* Устанавливает размер на весь экран */
-    overflow-y: scroll; /* Разрешает прокрутку */
+    z-index: 1; 
+    height: 100vh; 
+    overflow-y: scroll; 
     scroll-snap-type: y mandatory;
- overflow: hidden; /* Hide scrollbars */	
+ overflow: hidden; 
 }
 
 .text-content {
@@ -109,23 +108,22 @@ body {
 
 /* Расположение: картинка справа */
 .image-right .text-content {
-    order: 1; /* Текст слева */
+    order: 1;
 }
 
 .image-right .image-content {
-    order: 2; /* Картинка справа */
+    order: 2; 
 }
 
 /* Расположение: картинка слева */
 .image-left .text-content {
-    order: 2; /* Текст справа */
+    order: 2; 
 }
 
 .image-left .image-content {
-    order: 1; /* Картинка слева */
+    order: 1; 
 }
 
-/* Адаптивный дизайн */
 @media (max-width: 768px) {
     .section-content {
         flex-direction: column;
@@ -133,7 +131,7 @@ body {
     }
 
     .text-content, .image-content {
-        order: 0; /* Убираем чередование на мобильных */
+        order: 0; 
     }
 
     .image-content img {
@@ -157,7 +155,7 @@ section {
     scroll-snap-align: start; 
 }
 
-/* Псевдоэлемент для размытия */
+
 section::before {
     content: "";
     position: absolute;
@@ -167,32 +165,31 @@ section::before {
     height: 100%;
     background-size: cover;
     background-position: center;
-    z-index: 0; /* Размытие ниже основного содержимого */
-    filter: blur(8px); /* Небольшое общее размытие */
-    opacity: 0.9; /* Легкая прозрачность для мягкости */
+    z-index: 0; 
+    filter: blur(8px); 
+    opacity: 0.9; 
 }
 
-/* Главная секция с изображением и градиентом */
 .section-home::before {
     background-image: url('../assets/b1.jpg');
 }
 
-/* Секция "Про нас" */
+
 .section-about::before {
     background-image: url('../assets/b2.jpg');
 }
 
-/* Секция "Темы" */
+
 .section-themes::before {
     background-image: url('../assets/b3.jpg');
 }
 
-/* Секция "Контакты" */
+
 .section-contact::before {
     background-image: url('../assets/b4.jpg');
 }
 
-/* Текст и изображение */
+
 .section-content {
     display: flex;
     max-width: 1200px;
@@ -200,7 +197,7 @@ section::before {
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
-    z-index: 1; /* Чтобы текст и изображение были выше псевдоэлемента */
+    z-index: 1; 
 }
 
 .text-content {
@@ -226,17 +223,17 @@ section::before {
 
 
 .menu {
-    display: none; /* Скрыто по умолчанию */
-    background-color: #4f8a56; /* Тёмно-зелёный фон */
+    display: none; 
+    background-color: #4f8a56; 
     padding: 20px;
-    position: fixed; /* Фиксированное положение */
+    position: fixed; 
     top: 57px;
     left: 0;
-    height: 100vh; /* Занимает всю высоту экрана */
-    width: 250px; /* Ширина меню */
+    height: 100vh; 
+    width: 250px; 
     z-index: 1;
-    overflow-y: auto; /* Прокрутка для длинного контента */
-    color: #4f8a56; /* Светло-зелёный текст */
+    overflow-y: auto; 
+    color: #4f8a56; 
 }
 
 .menu-btn, .close-btn {
@@ -249,12 +246,12 @@ section::before {
 }
 
 .menu-btn:hover, .close-btn:hover {
-    background-color: #3e6d3b; /* Более светлый зелёный при наведении */
+    background-color: #3e6d3b;
 }
 
 .close-btn {
     display: block;
-    margin: 0 auto 20px auto; /* Центрирование кнопки закрытия */
+    margin: 0 auto 20px auto;
     text-align: center;
     font-size: 1.2em;
 }
@@ -276,7 +273,7 @@ section::before {
 }
 
 .submenu {
-    display: none; /* Скрыто по умолчанию */
+    display: none; 
     padding-left: 15px;
     margin-top: 10px;
     border-left: 2px solid #4c7a4a;
