@@ -102,7 +102,7 @@ body {
 }
 
 .submenu {
-    display: none; /* Скрыто по умолчанию */
+    display: none; 
     padding-left: 15px;
     margin-top: 10px;
     border-left: 2px solid #4c7a4a;
